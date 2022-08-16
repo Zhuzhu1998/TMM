@@ -36,7 +36,7 @@ let list_max_string l =
   try string_of_int ( list_max l ) with
   | Failure _ -> "empty"
 ```
-**Notice:  **
+**Notice:**
 > To catch an exception, use this syntax:  
 >try e with  
 >| p1 -> e1  
