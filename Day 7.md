@@ -60,14 +60,14 @@ type 'a tree =
     | Leaf
     | Node of 'a * 'a tree * 'a tree;;
 
-let get_value  = function
-  |Leaf -> Leaf 
-  |Node(x,_,_) ->x
+let is_bst_helper = function
+  | Leaf->true
+  | Node (x, l , r)-> match l , r with
+                    | Leaf,Leaf -> true
+                    | Node(lvalue,_,_),Leaf -> lvalue < x && is_bst_helper l 
+                    | Leaf,Node(rvalue,_,_) -> rvalue > x && is_bst_helper r 
+                    | Node(lvalue,_,_), Node(rvalue,_,_) -> rvalue > x && lvalue < x && is_bst_helper l && is_bst_helper r;;
 
-
-let rec is_bst_helper = function
-  | Leaf-> true
-  | Node (x ,l, r ) -> if (get_value l < x) && (get_value r > x) && (is_bst_helper l) && is_bst_helper r then true else false
 
 let is_bst t= 
   match is_bst_helper t with
