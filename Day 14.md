@@ -3,7 +3,7 @@
 ```Ocaml
 type stu = {
 	name : string ;
-mutable gpa : float
+	mutable gpa : float
 }
 let alice = {name = "Alice"; gpa = 3.7};;
 alice.gpa <- 4.0;;
@@ -17,7 +17,7 @@ The first letter of the variable name cannot be capitalized. If it is capitalize
 ## 2. Exercise: inc fun
 ```Ocaml
 let ans = 
-  let inc = ref (fun x -> x + 1) in !inc 3109 
+  let inc = ref (fun x -> x + 1) in !inc 3109 ;;
 ```
 ## 3. Exercise: inc fun
 ```Ocaml
